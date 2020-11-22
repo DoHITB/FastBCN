@@ -223,7 +223,8 @@
     var intervalDown;
     var intervalUp;
     var curSec = "";
-    var stp = 0;
+	var stp = 0;
+    var allText = "";
     
     /* Main - HEAD */
     var mhMaxPic = 5;
@@ -253,7 +254,7 @@
       mhstep = 0;
       var fTime = false;
       
-      mhload();
+      setTimeout("mhload()", 1005);
     }
     
     function about(){
@@ -305,8 +306,6 @@
       clear();
       add("Estas en CONTACTO");
     }
-    
-    
     
     function minimize(){
       if(step >= maxStep){
@@ -447,31 +446,33 @@
     function isOnCurSec(sec){return curSec === sec;}
     function clear(){g("bbody").innerHTML = '';}
     function add(t){g("bbody").innerHTML += t;}
-    function fill(k){parse(readTextFile(k + ".dat"));}
+    function fill(k){
+	  readTextFile(k + ".dat");
+	  setTimeout("parse(allText)", 1000);
+	}
+	
     function parse(t){add(t);}
-    
+	
     function readTextFile(file){
       var rawFile = new XMLHttpRequest();
-      var allText = "";
+      allText = "";
+	  var n = 0;
       
-      stp = 0;
-      
+	  stp = 0;
+	  
       rawFile.open("GET", file, true);
       rawFile.onreadystatechange = function (){
         if(rawFile.readyState === 4){
           if(rawFile.status === 200 || rawFile.status == 0){
             allText = rawFile.responseText;
-            stp = 1;
+			stp = 1;
           }
         }
       }
-    
-      rawFile.send(null);
-      
-      //esperamos hasta que cargue
-      while(stp == 0);
-      
-      return allText;
+	
+	  rawFile.send(null);
+	  
+	  return null;
     }
     
     /*
@@ -486,7 +487,7 @@
     }
   
     function mhload(){
-      var mhli = 1;
+	  var mhli = 1;
       
       //la primera va al center
       addPic(0, "center");
