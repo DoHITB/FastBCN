@@ -453,17 +453,22 @@
     function readTextFile(file){
       var rawFile = new XMLHttpRequest();
       var allText = "";
+      var stp = 0;
       
       rawFile.open("GET", file, true);
       rawFile.onreadystatechange = function (){
         if(rawFile.readyState === 4){
           if(rawFile.status === 200 || rawFile.status == 0){
             allText = rawFile.responseText;
+            stp = 1;
           }
         }
       }
     
       rawFile.send(null);
+      
+      //esperamos hasta que cargue
+      while(stp == 0);
       
       return allText;
     }
