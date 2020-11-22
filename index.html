@@ -223,7 +223,7 @@
     var intervalDown;
     var intervalUp;
     var curSec = "";
-    
+    var stp = 0;
     
     /* Main - HEAD */
     var mhMaxPic = 5;
@@ -453,7 +453,8 @@
     function readTextFile(file){
       var rawFile = new XMLHttpRequest();
       var allText = "";
-      var stp = 0;
+      
+      stp = 0;
       
       rawFile.open("GET", file, true);
       rawFile.onreadystatechange = function (){
