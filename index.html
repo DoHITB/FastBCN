@@ -90,6 +90,7 @@
     margin-right: 1%;
     /*height: 95%;*/
     cursor: pointer;
+	text-align: center;
   }
   
   #home{
@@ -191,6 +192,15 @@
     width: 100%;
     height: 100%;
   }
+  
+  #lang:hover{
+    cursor: pointer;
+  }
+  
+  #iglogo, #twlogo{
+    width: 30px;
+	padding: 5px;
+  }
   </style>
 </head>
 <body>
@@ -199,16 +209,111 @@
       <div id="strapu" class="strap"></div>
       <div id="logoh"><br /><br /><br />Fast<br />BCN</div>
       <div id="mainh"><br /><br /><br />Bicing<br />Barcelona</div>
-      <div id="righth"><br /><br /><br />INSTAGRAMOS | TUITERS<br /><br /><br />ESPAÑOL DE ESPAÑA | CATALAN | ENGLISH</div>
+      <div id="righth"><br /><br /><br /><a href="https://www.instagram.com/fastbcn/" target="_blank"><img src="./img/icons/ig_1.png" id="iglogo" /></a> | <a href="https://twitter.com/fastbcn" target="_blank"><img src="./img/icons/tw_1.png" id="twlogo" /></a><br /><br /><br /><span id="lang" onclick="setLan(0);">ESPAÑOL DE ESPAÑA</span> | <span id="lang" onclick="setLan(1);">CATALAN</span> | <span id="lang" onclick="setLan(2);">ENGLISH</span></div>
       <div id="strapd" class="strap"></div>
     </div>
     <div id="tabs">
-      <div class="tab" id="home" onclick="home();">H</div>
-      <div class="tab" id="about" onclick="about();">A</div>
-      <div class="tab" id="tarifas" onclick="tarifas();">T</div>
-      <div class="tab" id="galeria" onclick="galeria();">G</div>
-      <div class="tab" id="redes" onclick="redes();">R</div>
-      <div class="tab" id="contacto" onclick="contacto();">C</div>
+	  <script type="text/javascript">
+	  	var idioma = 0; //0: CAS | 1: CAT | 2: ENG
+		var curSec = "";
+		
+		function g(id){return document.getElementById(id);}
+		function setString(s, k){g(k).innerHTML = s;}
+		function isOnCurSec(sec){return curSec === sec;}
+		function setLan(k){
+		  //cambiamos idioma
+		  idioma = k;
+		  
+		  //actualizamos cabecera
+		  setString(getString("HOME"), "home");
+		  setString(getString("ABOUT"), "about");
+		  setString(getString("TARIFAS"), "tarifas");
+		  setString(getString("GALERIA"), "galeria");
+		  setString(getString("REDES"), "redes");
+		  setString(getString("CONTACTO"), "contacto");
+		  
+		  //recargamos la sección
+		  if(isOnCurSec("home")){
+		    curSec = "";
+			home();
+		  }else if(isOnCurSec("about")){
+		    curSec = "";
+			about();
+		  }else if(isOnCurSec("tarifas")){
+		    curSec = "";
+			tarifas();
+		  }else if(isOnCurSec("galeria")){
+		    curSec = "";
+			galeria();
+		  }else if(isOnCurSec("redes")){
+		    curSec = "";
+			redes();
+		  }else if(isOnCurSec("contacto")){
+		    curSec = "";
+			contacto();
+		  }
+		}
+		
+	  	function getString(k){
+	      if(k === "HOME"){
+	        if(idioma == 0){
+		      return "Inicio";
+		    }else if(idioma == 1){
+		      return "Inici";
+		    }else if(idioma == 2){
+		      return "Home";
+		    }
+	      }else if(k === "ABOUT"){
+	  	    if(idioma == 0){
+		      return "Sobre nosotros";
+		    }else if(idioma == 1){
+		      return "Sobre nosaltres";
+		    }else if(idioma == 2){
+		      return "About us";
+		    }
+	      }else if(k === "TARIFAS"){
+	  	     if(idioma == 0){
+		      return "Tarifas";
+		    }else if(idioma == 1){
+		      return "Tarifes";
+		    }else if(idioma == 2){
+		      return "Rating";
+		    }
+	      }else if(k === "GALERIA"){
+	  	    if(idioma == 0){
+		      return "Galería";
+		    }else if(idioma == 1){
+		      return "Galeria";
+		    }else if(idioma == 2){
+		      return "Galery";
+		    }
+	      }else if(k === "REDES"){
+	  	    if(idioma == 0){
+		      return "Redes";
+		    }else if(idioma == 1){
+		      return "Xarxes";
+		    }else if(idioma == 2){
+		      return "Network";
+		    }
+	      }else if(k === "CONTACTO"){
+	         if(idioma == 0){
+		      return "Contacto";
+		    }else if(idioma == 1){
+		      return "Contacte";
+		    }else if(idioma == 2){
+		      return "Contact";
+		    }
+	      }
+		
+	      return "";
+	    }
+	  </script>
+      <div class="tab" id="home" onclick="home();"><script type="text/javascript">setString(getString("HOME"), "home");</script></div>
+      <div class="tab" id="about" onclick="about();"><script type="text/javascript">setString(getString("ABOUT"), "about");</script></div>
+      <div class="tab" id="tarifas" onclick="tarifas();"><script type="text/javascript">setString(getString("TARIFAS"), "tarifas");</script></div>
+      <div class="tab" id="galeria" onclick="galeria();"><script type="text/javascript">setString(getString("GALERIA"), "galeria");</script></div>
+      <div class="tab" id="redes" onclick="redes();"><script type="text/javascript">setString(getString("REDES"), "redes");</script></div>
+      <div class="tab" id="contacto" onclick="contacto();"><script type="text/javascript">setString(getString("CONTACTO"), "contacto");</script></div>
     </div>
   </div>
   <div id="bbody">
@@ -222,7 +327,6 @@
     var tranLength = 200;
     var intervalDown;
     var intervalUp;
-    var curSec = "";
 	var stp = 0;
     var allText = "";
     
@@ -238,7 +342,7 @@
     smallHeader();*/
     
     home();
-    
+    	
     function home(){
       if(isOnCurSec("home"))
         return;
@@ -442,12 +546,10 @@
       }
     }
     
-    function g(id){return document.getElementById(id);}
-    function isOnCurSec(sec){return curSec === sec;}
     function clear(){g("bbody").innerHTML = '';}
     function add(t){g("bbody").innerHTML += t;}
     function fill(k){
-	  readTextFile(k + ".dat");
+	  readTextFile(k + "_" + idioma + ".dat");
 	  setTimeout("parse(allText)", 1000);
 	}
 	
