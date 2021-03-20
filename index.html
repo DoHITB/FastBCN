@@ -179,15 +179,33 @@
   }
   
   #gleft, #gright{
-    /*background: orange;*/
+    background: #1d1d1d;
     position: absolute;
     width: 5%;
     height: 100%;
     z-index: 5;
+	font-size: 80px;
+	cursor: pointer;
   }
   
   #gright{
     left: 95%;
+  }
+  
+  #gleft:hover, #gright:hover{
+    background: #1f1f1f;
+  }
+  
+  #gleft:active, #gright:active{
+    background: #2f2f2f;
+  }
+  
+  .selector{
+	position: absolute;
+	top: 40%;
+	cursor: pointer;
+	width: 75%;
+	text-align: right;
   }
   
   #maintarifas, #maintarifas iframe{
