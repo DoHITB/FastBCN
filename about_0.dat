@@ -1,9 +1,9 @@
 <div id="mainhome">
 	<div id="mhleft"></div>
 	<div id="mhccenter">
-		<div id="gleft" onclick="goRight();"><div class="selector">&lt;</div></div>
+		<div id="gleft" onclick="goRight();"><div class="selector"><</div></div>
 		<div id="mhcenter"></div>
-		<div id="gright" onclick="goLeft();"><div class="selector">&gt;</div></div>
+		<div id="gright" onclick="goLeft();"><div class="selector">></div></div>
 	</div>
 	<div id="mhright"></div>
 </div>
