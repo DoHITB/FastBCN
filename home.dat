@@ -1,9 +1,0 @@
-<div id="mainhome">
-	<div id="mhleft"></div>
-	<div id="mhccenter">
-		<div id="gleft" onclick="goRight();"></div>
-		<div id="mhcenter"></div>
-		<div id="gright" onclick="goLeft();"></div>
-	</div>
-	<div id="mhright"></div>
-</div>
