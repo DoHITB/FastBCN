@@ -362,7 +362,7 @@
         g("hmpic" + v2).style.left = '' + (cRight + offr) + '%';
 	  }catch(e){
 		  //algo pasa con las imaganes. Paramos las animaciones
-		  force = true;
+		  /*force = true;
 		  
 		  try{
             clearTimeout(intervalLeft);
@@ -374,7 +374,7 @@
 		  
 		  mhstep = 50;
 		  
-		  return;
+		  return;*/
 	  }
     
       if(ind === false){
@@ -415,3 +415,6 @@
 	 function about2contact(){
 		contacto();
 	 }
+	 
+	 //forzamos el render
+	 reload();
