@@ -20,6 +20,7 @@
     smallHeader();*/
     
     home();
+	isLoad = true;
     	
     function home(){
       if(isOnCurSec("home"))
