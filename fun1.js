@@ -1,6 +1,8 @@
 	  	var idioma = 0; //0: CAS | 1: CAT | 2: ENG
 		var curSec = "";
 		
+		window.onresize = reload;
+		
 		function g(id){return document.getElementById(id);}
 		function setString(s, k){g(k).innerHTML = s;}
 		function isOnCurSec(sec){return curSec === sec;}
@@ -8,6 +10,28 @@
 		  //cambiamos idioma
 		  idioma = k;
 		  
+          //recargamos
+		  reload();
+		}
+		
+		function reload(){
+		  //detenemos animaciones
+		  try{
+            clearTimeout(intervalLeft);
+          }catch(e){}
+        
+          try{
+            clearTimeout(intervalRight);
+          }catch(e){}
+		  
+		  try{
+            clearTimeout(intervalDown);
+          }catch(e){}
+          
+          try{
+            clearTimeout(intervalUp);
+          }catch(e){}
+			
 		  //actualizamos cabecera
 		  setString(getString("HOME"), "home");
 		  setString(getString("ABOUT"), "about");
@@ -39,6 +63,15 @@
 		}
 		
 	  	function getString(k){
+		  let limit = 90;
+		  
+		  if(g('home').offsetWidth >= limit)
+		    return getTextString(k);
+		  
+		  return getIconString(k);
+		}
+		
+		function getTextString(k){
 	      if(k === "HOME"){
 	        if(idioma == 0){
 		      return "Inicio";
@@ -91,3 +124,21 @@
 		
 	      return "";
 	    }
+		
+		function getIconString(k){
+		  if(k === "HOME"){
+            return "<img src='./img/icons/home.png' class='menuicon' />";
+	      }else if(k === "ABOUT"){
+            return "<img src='./img/icons/about.png' class='menuicon' />";
+	      }else if(k === "TARIFAS"){
+            return "<img src='./img/icons/tarifas.png' class='menuicon' />";
+	      }else if(k === "GALERIA"){
+            return "<img src='./img/icons/galeria.png' class='menuicon' />";
+	      }else if(k === "REDES"){
+            return "<img src='./img/icons/redes.png' class='menuicon' />";
+	      }else if(k === "CONTACTO"){
+            return "<img src='./img/icons/contacto.png' class='menuicon' />";
+	      }
+		  
+		  return "";
+		}
