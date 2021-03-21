@@ -1,7 +1,13 @@
 	  	var idioma = 0; //0: CAS | 1: CAT | 2: ENG
 		var curSec = "";
+		var isLoad = false;
 		
-		window.onresize = reload;
+		window.onresize = resize;
+		
+		function resize(){
+		  if(isLoad)
+			  location.reload();
+		}
 		
 		function g(id){return document.getElementById(id);}
 		function setString(s, k){g(k).innerHTML = s;}
