@@ -14,6 +14,7 @@
     var fTime = false;
     var intervalLeft;
     var intervalRight;
+	var force = false;
     
     /*bigHeader();
     smallHeader();*/
@@ -313,6 +314,9 @@
     }
     
     function mhtransition(ind){
+	  /*if(force)
+		  return;*/
+	  
       let cLeftO = 116;
       let cRightO = 105;
       
@@ -351,9 +355,26 @@
           ++cLeft;
         }
       }
+      
+	  try{
+        g("hmpic" + v1).style.left = '' + (cLeft + offl) + '%';
+        g("hmpic" + v2).style.left = '' + (cRight + offr) + '%';
+	  }catch(e){
+		  //algo pasa con las imaganes. Paramos las animaciones
+		  force = true;
+		  
+		  try{
+            clearTimeout(intervalLeft);
+          }catch(e){}
         
-      g("hmpic" + v1).style.left = '' + (cLeft + offl) + '%';
-      g("hmpic" + v2).style.left = '' + (cRight + offr) + '%';
+          try{
+            clearTimeout(intervalRight);
+          }catch(e){}
+		  
+		  mhstep = 50;
+		  
+		  return;
+	  }
     
       if(ind === false){
         //vamos hacia la izquierda
