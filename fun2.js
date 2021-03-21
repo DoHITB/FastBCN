@@ -259,7 +259,7 @@
      */
     function addPic(i, side){
       if(side === "left" || side === "center" || side === "right"){
-        g("mh" + side).innerHTML += "<img src='./img/fastbcn-home-" + i + ".jpg' id='hmpic" + i + "'/>";
+        g("mh" + side).innerHTML += "<img src='./img/fastbcn-home-" + i + ".webp' id='hmpic" + i + "'/>";
       }else{
         return;
       }
