@@ -22,7 +22,7 @@
 		
 		function reload(){
 		  //detenemos animaciones
-		  try{
+		  /*try{
             clearTimeout(intervalLeft);
           }catch(e){}
         
@@ -36,7 +36,7 @@
           
           try{
             clearTimeout(intervalUp);
-          }catch(e){}
+          }catch(e){}*/
 			
 		  //actualizamos cabecera
 		  setString(getString("HOME"), "home");
@@ -47,10 +47,10 @@
 		  setString(getString("CONTACTO"), "contacto");
 		  
 		  //recargamos la sección
-		  if(isOnCurSec("home")){
+		  /*if(isOnCurSec("home")){
 		    curSec = "";
 			home();
-		  }else if(isOnCurSec("about")){
+		  }else */if(isOnCurSec("about")){
 		    curSec = "";
 			about();
 		  }else if(isOnCurSec("tarifas")){
@@ -66,10 +66,48 @@
 		    curSec = "";
 			contacto();
 		  }
+		  
+		  //revisamos colisiones
+		  if(g('logoh').offsetWidth < g('logohimg').offsetWidth){
+		    //si el ancho del logo es mayor que el ancho del contenedor, forzamos que sean el mismo
+			g('logohimg').style.width = "100%";
+		  }else{
+			g('logohimg').style.width = "";
+		  }
+		  
+		  if(g('righth').offsetWidth < 85){
+			//empiezan a no caber iconos de banderas y redes
+			g('iglogo').style.width = "5px";
+			g('twlogo').style.width = "5px";
+			g('esp').style.width = "5px";
+			g('cat').style.width = "5px";
+			g('eng').style.width = "5px";  
+		  }else if(g('righth').offsetWidth < 100){
+			//empiezan a no caber iconos de banderas y redes
+			g('iglogo').style.width = "10px";
+			g('twlogo').style.width = "10px";
+			g('esp').style.width = "10px";
+			g('cat').style.width = "10px";
+			g('eng').style.width = "10px";  
+		  }else if(g('righth').offsetWidth < 115){
+			//empiezan a no caber iconos de banderas y redes
+			g('iglogo').style.width = "15px";
+			g('twlogo').style.width = "15px";
+			g('esp').style.width = "15px";
+			g('cat').style.width = "15px";
+			g('eng').style.width = "15px";  
+		  }else if(g('righth').offsetWidth < 145){
+            //empiezan a no caber iconos de banderas y redes
+			g('iglogo').style.width = "20px";
+			g('twlogo').style.width = "20px";
+			g('esp').style.width = "20px";
+			g('cat').style.width = "20px";
+			g('eng').style.width = "20px";
+		  } 
 		}
 		
 	  	function getString(k){
-		  let limit = 90;
+		  let limit = 148;
 		  
 		  if(g('home').offsetWidth >= limit)
 		    return getTextString(k);
