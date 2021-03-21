@@ -1,271 +1,45 @@
-  body{
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #header{
-    position: absolute;
-    width: 100%;
-    /*30% for home, 25% for the rest*/
-    height: 30%;
-    /*background-color: red;*/
-    padding: 0;
-    margin: 0;
-  }
-  
-  #mhead{
-    position: absolute;
-    width: 100%;
-    height: 87%;
-    /*background-color: black;*/
-  }
-  
-  #logoh{
-    position: absolute;
-    width: 33%;
-    height: 100%;
-    /*background-color: blue;*/
-    padding: 0;
-    margin: 0;
-  }
-  
-  #mainh{
-    position: absolute;
-    width: 34%;
-    height: 100%;
-    /*background-color: yellow;*/
-    padding: 0;
-    margin: 0;
-    left: 33%;
-    text-align: center;
-    font-size: 40px;
-    top: 30%;
-  }
-  
-  #righth{
-    position: absolute;
-    width: 33%;
-    /*background-color: green;*/
-    padding: 0;
-    margin: 0;
-    left: 67%;
-    height: 100%;
-  }
-  
-  .strap{
-    background-color: #e21e22;
-    height: 25px;
-    width:100%;
-  }
-  
-  #strapu{
-    position: absolute;
-    top: 0%;
-    z-index: 2;
-  }
-  
-  #strapd{
-    position: absolute;
-    top: 90%;
-  }
-  
-  #tabs{
-    position: absolute;
-    width: 100%;
-    height: 13%;
-    top: 87%;
-    /*background-color: green;*/
-  }
-  
-  .tab{
-    position: absolute;
-    border: 2px solid #1d1d1d;
-	background: #1f1f1f;
-    width: 10%;
-    margin-right: 1%;
-    /*height: 95%;*/
-    cursor: pointer;
-    text-align: center;
-    font-size: 24px;
-  }
-  
-  .tab:hover{
-    border: 2px solid #2f2f2f;
-    background: #2f2f2f;
-  }
-  
-  .tab:active{
-    border: 2px solid #3f3f3f;
-    background: #3f3f3f;
-  }
-  
-  #home{
-    left: 33%;
-  }
-  
-  #about{
-    left: 44%;
-  }
-  
-  #tarifas{
-    left: 55%;
-  }
-  
-  #galeria{
-    left: 66%;
-  }
-  
-  #redes{
-    left: 77%;
-  }
-  
-  #contacto{
-    left: 88%;
-  }
-  
-  #bbody{
-    position: absolute;
-    top: 30%;
-    width: 100%;
-    height: 65%;
-    /*background-color: grey;*/
-    overflow: hidden;
-  }
-  
-  #footer{
-    position: absolute;
-    width: 100%;
-    height: 5%;
-    top: 95%;
-    /*background-color: navy;*/
-  }
-  
-  #mainhome, #mhccenter{
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-  
-  #mhleft, #mhright{
-    position: absolute;
-    left: -100%;
-    width: 90%;
-    height: 100%;
-  }
-  
-  #mhright{
-    left: 100%;
-    top: -100%;
-  }
-  
-  #mhcenter{
-    position: absolute;
-    left: 5%;
-    width: 90%;
-    height: 100%;
-    /*background: green;*/
-  }
-  
-  #mhleft img, #mhright img, #mhcenter img{
-    position: absolute;
-    left: 0%;
-    width: 99%;
-    height: 100%;
-  }
-  
-  #mhright img{
-    top: 100%;
-  }
-  
-  #mhcenter img{
-    width: 98%;
-  }
-  
-  #gleft, #gright{
-    background: #1d1d1d;
-    position: absolute;
-    width: 5%;
-    height: 100%;
-    z-index: 5;
-    font-size: 80px;
-    cursor: pointer;
-  }
-  
-  #gright{
-    left: 95%;
-  }
-  
-  #gleft:hover, #gright:hover{
-    background: #2f2f2f;
-  }
-  
-  #gleft:active, #gright:active{
-    background: #3f3f3f;
-  }
-  
-  .selector{
-    position: absolute;
-    top: 40%;
-    cursor: pointer;
-    width: 75%;
-    text-align: right;
-  }
-  
-  #maintarifas, #maintarifas iframe{
-    position: absolute;
-    width: 100%;
-    height: 98%;
-    top: 2%;
-  }
-  
-  #lang:hover{
-    cursor: pointer;
-  }
-  
-  #lang img{
-    padding: 5px;
-  }
-  
-  #iglogo, #twlogo{
-    width: 30px;
-    padding: 5px;
-  }
-  
-  #logohimg{
-    height: 100%;
-  }
-  
-  #mainabout{
-    position: absolute;
-    top: 15%;
-    font-size: 20px;
-    text-align: center;
-    margin: 35px;
-  }
-  
-  #mainpics{
-    padding-bottom: 30px;
-  }
-  
-  #mainpics img{
-    border-radius: 128px;
-    margin-left: 3px;
-    margin-right: 3px;
-  }
-  
-  .aboutlink{
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .maintitle{
-    font-size: 40px;
-    margin-bottom: 15px;
-  }
-  
-  body{
-    background: black;
-    color: white;
-  }
+body{width:100%;height:100%;padding:0;margin:0}
+#header{position:absolute;width:100%;height:30%;padding:0;margin:0}
+#mhead{position:absolute;width:100%;height:87%}
+#logoh{position:absolute;width:33%;height:100%;padding:0;margin:0}
+#mainh{position:absolute;width:34%;height:100%;padding:0;margin:0;left:33%;text-align:center;font-size:40px;top:30%}
+#righth{position:absolute;width:33%;padding:0;margin:0;left:67%;height:100%}
+.strap{background-color:#e21e22;height:25px;width:100%}
+#strapu{position:absolute;top:0;z-index:2}
+#strapd{position:absolute;top:90%}
+#tabs{position:absolute;width:100%;height:13%;top:87%}
+.tab{position:absolute;border:2px solid #1d1d1d;background:#1f1f1f;width:10%;margin-right:1%;cursor:pointer;text-align:center;font-size:24px}
+.tab:hover{border:2px solid #2f2f2f;background:#2f2f2f}
+.tab:active{border:2px solid #3f3f3f;background:#3f3f3f}
+#home{left:33%}
+#about{left:44%}
+#tarifas{left:55%}
+#galeria{left:66%}
+#redes{left:77%}
+#contacto{left:88%}
+#bbody{position:absolute;top:30%;width:100%;height:65%;overflow:hidden}
+#footer{position:absolute;width:100%;height:5%;top:95%}
+#mainhome,#mhccenter{overflow:hidden;width:100%;height:100%}
+#mhleft,#mhright{position:absolute;left:-100%;width:90%;height:100%}
+#mhright{left:100%;top:-100%}
+#mhcenter{position:absolute;left:5%;width:90%;height:100%}
+#mhcenter img,#mhleft img,#mhright img{position:absolute;left:0;width:99%;height:100%}
+#mhright img{top:100%}
+#mhcenter img{width:98%}
+#gleft,#gright{background:#1d1d1d;position:absolute;width:5%;height:100%;z-index:5;font-size:80px;cursor:pointer}
+#gright{left:95%}
+#gleft:hover,#gright:hover{background:#2f2f2f}
+#gleft:active,#gright:active{background:#3f3f3f}
+.selector{position:absolute;top:40%;cursor:pointer;width:75%;text-align:right}
+#maintarifas,#maintarifas iframe{position:absolute;width:100%;height:98%;top:2%}
+#lang:hover{cursor:pointer}
+#lang img{padding:5px}
+#iglogo,#twlogo{width:30px;padding:5px}
+#logohimg{height:100%}
+.menuicon{width:25%}
+#mainabout{position:absolute;top:15%;font-size:20px;text-align:center;margin:35px}
+#mainpics{padding-bottom:30px}
+#mainpics img{border-radius:128px;margin-left:3px;margin-right:3px}
+.aboutlink{text-decoration:underline;cursor:pointer}
+.maintitle{font-size:40px;margin-bottom:15px}
+body{background:#000;color:#fff}
