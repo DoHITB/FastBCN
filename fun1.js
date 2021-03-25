@@ -87,6 +87,16 @@ function reload(){
 	g('cat').style.width = "20px";
 	g('eng').style.width = "20px";
   } 
+  
+  //obtenemos el ancho de los botones de navegación
+  let bheight = g('home').offsetHeight;
+  
+  //el ancho de los iconos (si hay) serán 10px menos que el ancho
+  let mpics = document.getElementsByClassName('menuicon');
+  let mi = 0;
+  
+  for(;mi < mpics.length;mi++)
+    mpics[mi].style.height = '' + (bheight - 10) + 'px';
 }
 
 function getString(k){
