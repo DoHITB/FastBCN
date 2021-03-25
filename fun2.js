@@ -127,49 +127,6 @@ function maximize(){
   }
 }
 
-function bigHeader(){
-  /*
-   * mhead.height: 100%;
-   * strapd.top: 87%;
-   * tabs.height: 0%;
-   * tabs.top: 90%;
-   * tab.height: 0;
-   * tab.top: -4px;
-   * tab.height: 21px;
-   */
-  g('mhead').style.height = '100%';
-  g('strapd').style.top = '87%';
-  g('tabs').style.height = '0%';
-  g('tabs').style.top = '90%';
-
-  let bhi = 0;
-
-  for(;bhi < sections.length;bhi++){
-    g(sections[bhi]).style.top = '-4px';
-    g(sections[bhi]).style.height = '21px';
-  }
-}
-
-function smallHeader(){
-  /*
-   * header.top: -25px;
-   * strapd.width: 0%;
-   * tabs.height: 13%;
-   * tabs.top: 87%;
-   * tab.height: 100%;
-   * tab.top: 0px;
-   */
-  g('header').style.top = '-25px';
-  g('strapd').style.width = '0%';
-  g('tabs').style.height = '13%';
-  g('tabs').style.top = '87%';
-
-  let shi = 0;
-
-  for(;shi < sections.length;shi++)
-    g(sections[shi]).style.top = '0px';
-}
-
 function transition(ind){    
   //header.top --> -step/2 pixels
   let hTop = Math.floor(step / 2) * -1;
@@ -181,10 +138,10 @@ function transition(ind){
   let tHeight = Math.floor((Math.floor(13 / maxStep)) * step);
 
   //tabs.top
-  let tTop = 90 - Math.floor((Math.floor(3 / maxStep) * step));
+  let tTop = 85 - Math.floor((Math.floor(3 / maxStep) * step));
 
   //tab.top
-  let ttTop = -4 + Math.floor((Math.floor(4 / maxStep) * step));
+  //let ttTop = -4 + Math.floor((Math.floor(4 / maxStep) * step));
 
   //bbody.top
   let bbTop = 30 - Math.floor(Math.floor((4 / maxStep) * step));
@@ -201,8 +158,8 @@ function transition(ind){
   g('bbody').style.top = '' + bbTop + '%';
   g('bbody').style.height = '' + bbHei + '%';
 
-  for(;ti < sections.length;ti++)
-    g(sections[ti]).style.top = '' + ttTop + 'px';
+  /*for(;ti < sections.length;ti++)
+    g(sections[ti]).style.top = '' + ttTop + 'px';*/
 
   if(ind === false){
     //vamos hacia la cabecera pequeña
