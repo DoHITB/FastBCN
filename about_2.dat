@@ -1,3 +1,14 @@
 <div id="mainabout">
-	<div>About us</div>
+	<!--<div class="maintitle">Nuestro equipo</div>-->
+	<div id="mainpics">
+	 <img src="./img/about/crew_1.png" width="128px" height="128px" /> 
+	 <!--<img src="./img/about/crew_2.jpg" width="128px" height="128px" />-->
+	 <!--<img src="./img/about/crew_3.jpg" width="128px" height="128px" />-->
+	 <!--<img src="./img/about/crew_4.jpg" width="128px" height="128px" />-->
+	</div>
+	<div>
+	  On <b>FAST BCN</b> we rely upon sostenibility, fast delivery, and compromise.<br /><br />
+	  Our service goes further than the <i>classical pick-and-deliver</i>; we also perform offical documentation management and registration, specific buys, national shipments and wide load transportation, and so many others.<br /><br /><br />
+	  Do not heistate on <span class="aboutlink" onclick="about2contact();">contact us</span>, we are hoping to help you.
+	</div>
 </div>
