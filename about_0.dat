@@ -1,3 +1,14 @@
 <div id="mainabout">
-	<div>Sobre nosotros</div>
+	<!--<div class="maintitle">Nuestro equipo</div>-->
+	<div id="mainpics">
+	 <img src="./img/about/crew_1.png" width="128px" height="128px" /> 
+	 <!--<img src="./img/about/crew_2.jpg" width="128px" height="128px" />-->
+	 <!--<img src="./img/about/crew_3.jpg" width="128px" height="128px" />-->
+	 <!--<img src="./img/about/crew_4.jpg" width="128px" height="128px" />-->
+	</div>
+	<div>
+	  En <b>FAST BCN</b> apostamos por la sostenibilidad, la rapidez, y el compromiso - desde el 2018.<br /><br />
+	  Nuestro servicio de mensajería exprés va más allá del <i>clásico recogida-entrega</i>; también realizamos gestiones de documentos oficiales y registros, compras específicas, envíos nacionales y transporte de mercancía voluminosa, y muchas otras más.<br /><br /><br />
+	  No dudes en ponerte en <span class="aboutlink" onclick="about2contact();">contacto con nosotros</span>, estaremos encantados de ayudarte.
+	</div>
 </div>
