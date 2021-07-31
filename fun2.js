@@ -272,6 +272,24 @@ function addPic(i, side){
   }
   
 }
+
+function adjustPic(){
+  let maxAllowed = g('mainhome').offsetWidth;
+  let api = 0;
+    
+  for(;api < mhMaxPic;api++){
+    let divBase = 98;
+    
+    //rebajamos el % relativo hasta que quepa el div
+    console.log("max: " + maxAllowed);
+    console.log(g("hmpic" + api).offsetWidth);
+      
+    while(g("hmpic" + api).offsetWidth >= maxAllowed){
+      g("hmpic" + api).style.width = '' + (--divBase) + '%';
+      console.log(g("hmpic" + api).offsetWidth);
+    }
+  }
+}
   
 function mhload(){
   var mhli = 0;
@@ -280,7 +298,8 @@ function mhload(){
     addPic(mhli, "center");
   
   //mostramos la primera imagen
-  setTimeout("goLeft()", 2000);
+  setTimeout("adjustPic()", 1500);
+  setTimeout("goLeft()", 2500);
   
 /*var mhli = 1;
 
