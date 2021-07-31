@@ -279,21 +279,22 @@ function addPic(i, side){
 function adjustPic(){
   let maxAllowed = g('mainhome').offsetWidth;
   let api = 0;
+  let divBase = 0;
   
-  try{
-    let t = g("hmpic" + api).offsetWidth;
+  for(;api < mhMaxPic;api++){
+    divBase = 98;
     
-    if(t == 0){
+    try{
+      let t = g("hmpic" + api).offsetWidth;
+    
+      if(t == 0){
+        wait(100);
+        return;
+      }
+    }catch(e){
       wait(100);
       return;
     }
-  }catch(e){
-    wait(100);
-    return;
-  }
-  
-  for(;api < mhMaxPic;api++){
-    let divBase = 98;
     
     //rebajamos el % relativo hasta que quepa el div
     console.log("max: " + maxAllowed);
