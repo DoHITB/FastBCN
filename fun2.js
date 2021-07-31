@@ -8,7 +8,7 @@ var stp = 0;
 var allText = "";
 
 /* Main - HEAD */
-var mhMaxPic = 5;
+var mhMaxPic = 4;
 var mhCurrPic = 0;
 var mhstep = 0;
 var fTime = false;
@@ -254,10 +254,35 @@ function readTextFile(file){
 /*
  * MAIN - HOME
  */
-function addPic(i, side){if(side === "left" || side === "center" || side === "right"){g("mh" + side).innerHTML += "<img src='./img/fastbcn-home-" + i + ".webp' id='hmpic" + i + "'/>";}else{return;}}
+function addPic(i, side){
+  if(side === "left" || side === "center" || side === "right"){
+    //creamos div vacío
+    g("mh" + side).innerHTML += "<div id='dhmpic" + i + "'></div>";
+    
+    //lo apartamos
+    g("dhmpic" + i).style.position = "absolute";
+    g("dhmpic" + i).style.left = '-100%';
+    g("dhmpic" + i).style.width = '98%';
+    g("dhmpic" + i).style.height = '100%';
+    
+    //añadimos la imagen
+    g("dhmpic" + i).innerHTML += "<img src='./img/fastbcn-home-" + i + ".webp' id='hmpic" + i + "'/>";
+  }else{
+    return;
+  }
+  
+}
   
 function mhload(){
-  var mhli = 1;
+  var mhli = 0;
+  
+  for(;mhli < mhMaxPic;mhli++)
+    addPic(mhli, "center");
+  
+  //mostramos la primera imagen
+  setTimeout("goLeft()", 1500);
+  
+/*var mhli = 1;
 
   //la primera va al center
   addPic(0, "center");
@@ -266,7 +291,7 @@ function mhload(){
   for(mhli = 1;mhli < mhMaxPic;mhli++)
     addPic(mhli, "right");
 
-  goLeft();
+  goLeft();*/
 }
     
 function goLeft(){
@@ -282,7 +307,8 @@ function goLeft(){
   }
 
   mhstep = 0;
-  intervalLeft = setInterval("mhtransition(false)", tranLength / maxStep);
+  /*intervalLeft = setInterval("mhtransition(false)", tranLength / maxStep);*/
+  mhtransition(false);
 }
     
 function goRight(){
@@ -298,48 +324,64 @@ function goRight(){
   }
 
   mhstep = maxStep;
-  intervalRight = setInterval("mhtransition(true)", tranLength / maxStep);
+  /*intervalRight = setInterval("mhtransition(true)", tranLength / maxStep);*/
+  mhtransition(true);
 }
     
 function mhtransition(ind){
-  let cLeftO = 115;
-  let cRightO = 105;
-
-  if(ind){
-    cLeftO = 23;
-    cRightO = 105;
-  }
-
-  let ink = -1;
-  let offl = 0;
-  let offr = 0;
-
+  //console.log("mhtransition: " + ind);
   //actual
   let v1 = mhCurrPic % mhMaxPic;
 
   //proximo
   let v2 = (mhCurrPic + 1) % mhMaxPic;
+  
+  //vigilamos con el orden para cuando vamos hacia atras
+  if(ind){
+    let vt = v1;
+    v1 = v2;
+    v2 = vt;
+  }
+  
+  let w1 = g('mainhome').offsetWidth;
+  let w2 = g('hmpic' + v2).offsetWidth;
+  
+  //console.log("w1: " + w1 + "; w2: " + w2);
+  
+  //apartamos la actual
+  g("hmpic" + v1).style.position = "absolute";
+  g("hmpic" + v1).style.left = '';
+  
+  //ajustamos el padre
+  //g("dhmpic" + v1).style.left = '-100%';
+  
+  
+  //mostramos la siguiente
+  g('hmpic' + v2).style.left = Math.abs(((w1/2) - (w2/2))) + "px";
+  g('hmpic' + v2).style.position = "relative";
+  
+  //ajustamos el padre
+  //g("dhmpic" + v2).style.left = '0%';
+  
+  //ajustamos los padres con animación
+  if(ind)
+    //OJO! mandamos v2, v1 a propósito porque antes hemos hecho swap de variables
+    intervalRight = setInterval("mhdostep("+ind+", "+v2+","+v1+")", tranLength / maxStep);
+  else
+    intervalLeft = setInterval("mhdostep("+ind+", "+v1+","+v2+")", tranLength / maxStep);
+}
 
-  let cLeft = Math.floor(((cLeftO / maxStep) * mhstep));
-  let cRight = Math.floor(((cRightO / maxStep) * mhstep));
+function mhdostep(ind, v1, v2){
+  //actual.left --> -(100/maxStep) * step %
+  let aleft = Math.floor((Math.floor(100 / maxStep) * mhstep)) * -1;
+  
+  //siguiente.left --> -100 + ((100/maxStep) * step) %
+  let sleft = Math.floor(-100 + (Math.floor(100 / maxStep) * mhstep));
 
-  cLeft *= ink;
-  cRight *= ink;
+  //console.log("aleft: " + aleft + "; sleft: " + sleft);
 
-  if(v1 > 0)
-    offl = cRightO * ink;
-
-  if(v2 == 0)
-    offr = (cRightO + 1) * ink * ink;
-
-  if(v1 == 0)
-    if(ind)
-      ++cLeft;
-
-  try{
-    g("hmpic" + v1).style.left = '' + (cLeft + offl) + '%';
-    g("hmpic" + v2).style.left = '' + (cRight + offr) + '%';
-  }catch(e){}
+  g('dhmpic' + v1).style.left = '' + aleft + '%';
+  g('dhmpic' + v2).style.left = '' + sleft + '%';
 
   if(ind === false){
     //vamos hacia la izquierda
