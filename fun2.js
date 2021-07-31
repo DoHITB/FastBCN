@@ -280,7 +280,7 @@ function mhload(){
     addPic(mhli, "center");
   
   //mostramos la primera imagen
-  setTimeout("goLeft()", 1500);
+  setTimeout("goLeft()", 2000);
   
 /*var mhli = 1;
 
