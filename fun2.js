@@ -276,7 +276,19 @@ function addPic(i, side){
 function adjustPic(){
   let maxAllowed = g('mainhome').offsetWidth;
   let api = 0;
+  
+  try{
+    let t = g("hmpic" + api).offsetWidth;
     
+    if(t == 0){
+      wait(100);
+      return;
+    }
+  }catch(e){
+    wait(100);
+    return;
+  }
+  
   for(;api < mhMaxPic;api++){
     let divBase = 98;
     
@@ -290,6 +302,16 @@ function adjustPic(){
     }
   }
 }
+
+async function wait(ms){
+  //sleep execution, then mock up a getResult
+  console.log("zzz...");
+  await sleep(ms);
+  adjustPic();
+}
+
+//aux function to sleep ms milliseconds
+function sleep(ms){return new Promise(resolve => setTimeout(resolve, ms))};
   
 function mhload(){
   var mhli = 0;
@@ -298,8 +320,10 @@ function mhload(){
     addPic(mhli, "center");
   
   //mostramos la primera imagen
-  setTimeout("adjustPic()", 1500);
-  setTimeout("goLeft()", 2500);
+  adjustPic();
+  setTimeout("goLeft()", 1500);
+  /*setTimeout("adjustPic()", 1500);
+  setTimeout("goLeft()", 2500);*/
   
 /*var mhli = 1;
 
