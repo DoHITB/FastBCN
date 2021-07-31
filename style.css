@@ -1,4 +1,4 @@
-body{width:100%;height:100%;padding:0;margin:0}
+body{width:100%;height:100%;padding:0;margin:0;background:#000;color:#fff}
 #header{position:absolute;width:100%;height:30%;padding:0;margin:0}
 #mhead{position:absolute;width:100%;height:85%}
 #logoh{position:absolute;width:33%;height:100%;padding:0;margin:0}
@@ -22,8 +22,8 @@ body{width:100%;height:100%;padding:0;margin:0}
 #mainhome,#mhccenter{overflow:hidden;width:100%;height:100%}
 #mhleft,#mhright{position:absolute;left:-100%;width:90%;height:100%}
 #mhright{left:123%;top:-100%}
-#mhcenter{position:absolute;left:28%;width:90%;height:100%}
-#mhcenter img,#mhleft img,#mhright img{position:absolute;left:0;/*width:99%;*/height:100%}
+#mhcenter{position:absolute;/*left:28%;*/width:90%;height:100%}
+#mhcenter img,#mhleft img,#mhright img{position:absolute;/*left:0;*//*width:99%;*/max-height:100%}
 #mhright img{top:100%}
 #mhcenter img{/*width:98%*/}
 #gleft,#gright{background:#1d1d1d;position:absolute;width:5%;height:100%;z-index:5;font-size:80px;cursor:pointer}
@@ -44,4 +44,3 @@ body{width:100%;height:100%;padding:0;margin:0}
 #maincontacto{position:absolute;top:30%;text-align:center;width:100%;height:100%;font-size:2vw;}
 .aboutlink{text-decoration:underline;cursor:pointer}
 .maintitle{font-size:40px;margin-bottom:15px}
-body{background:#000;color:#fff}
