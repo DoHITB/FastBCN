@@ -1,5 +1,5 @@
 <div id="maintarifas">
 	<!--<iframe src="https://www.google.com/maps/d/embed?mid=17gy4kHL9Hp0Xb2EOKst-jQ0F-_DURANw"></iframe>-->
-  <img src="./img/temp/tarifas.png" style="position:absolute;top:3%;left:2%">
-  <img src="./img/temp/tabla_t.png" style="position:absolute;top:3%;left:50%">
+  <img src="./img/temp/tarifas.png" style="position:absolute;top:3%;left:2%;width:60%;" id="mtmapa">
+  <img src="./img/temp/tabla_t.png" style="position:absolute;top:3%;left:63%;width:35%" id="mttabla">
 </div>
