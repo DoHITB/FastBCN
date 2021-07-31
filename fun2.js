@@ -423,8 +423,12 @@ function mhdostep(ind, v1, v2){
 
   //console.log("aleft: " + aleft + "; sleft: " + sleft);
 
-  g('dhmpic' + v1).style.left = '' + aleft + '%';
-  g('dhmpic' + v2).style.left = '' + sleft + '%';
+  try{
+    g('dhmpic' + v1).style.left = '' + aleft + '%';
+    g('dhmpic' + v2).style.left = '' + sleft + '%';
+  }catch(e){
+    console.log("wrong section");
+  }
 
   if(ind === false){
     //vamos hacia la izquierda
