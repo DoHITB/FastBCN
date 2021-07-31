@@ -55,6 +55,9 @@ function tarifas(){
   minimize();
   clear();
   fill("tarifas");
+  
+  //inicializamos
+  setTimeout("mtload()", 1005);
 }
 
 function galeria(){
@@ -322,21 +325,18 @@ function mhload(){
   //mostramos la primera imagen
   adjustPic();
   setTimeout("goLeft()", 1500);
-  /*setTimeout("adjustPic()", 1500);
-  setTimeout("goLeft()", 2500);*/
-  
-/*var mhli = 1;
-
-  //la primera va al center
-  addPic(0, "center");
-
-  //el resto, a la derecha
-  for(mhli = 1;mhli < mhMaxPic;mhli++)
-    addPic(mhli, "right");
-
-  goLeft();*/
 }
-    
+
+function mtload(){
+  if(g("maintarifas").offsetWidth < 600){
+    //versión reducida
+    g("mtmapa").style.width = "95%";
+    g("mttabla").style.top = "53%";
+    g("mttabla").style.left = "2%";
+    g("mttabla").style.width = "95%";
+  }
+}
+
 function goLeft(){
   if(mhstep !== 0){
     //hay alguna animación en marcha. Paramos ambas
@@ -350,7 +350,6 @@ function goLeft(){
   }
 
   mhstep = 0;
-  /*intervalLeft = setInterval("mhtransition(false)", tranLength / maxStep);*/
   mhtransition(false);
 }
     
@@ -367,7 +366,6 @@ function goRight(){
   }
 
   mhstep = maxStep;
-  /*intervalRight = setInterval("mhtransition(true)", tranLength / maxStep);*/
   mhtransition(true);
 }
     
@@ -394,17 +392,10 @@ function mhtransition(ind){
   //apartamos la actual
   g("hmpic" + v1).style.position = "absolute";
   g("hmpic" + v1).style.left = '';
-  
-  //ajustamos el padre
-  //g("dhmpic" + v1).style.left = '-100%';
-  
-  
+
   //mostramos la siguiente
   g('hmpic' + v2).style.left = Math.abs(((w1/2) - (w2/2))) + "px";
   g('hmpic' + v2).style.position = "relative";
-  
-  //ajustamos el padre
-  //g("dhmpic" + v2).style.left = '0%';
   
   //ajustamos los padres con animación
   if(ind)
